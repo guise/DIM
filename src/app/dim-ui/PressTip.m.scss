@@ -1,7 +1,7 @@
 @use '../variables.scss' as *;
 @use 'sass:color';
 
-$ribbon-width: 6px;
+$ribbon-width: 3px;
 $arrow-size: 15px; // ensure this stays in sync with 'popperArrowSize' in 'usePopper.ts'
 $minimal-arrow-size: 10px;
 $horizontal-padding: 11px;
@@ -14,17 +14,18 @@ $horizontal-padding: 11px;
 
 .tooltip {
   --tooltip-ribbon-color: #8e8e9e;
-  --tooltip-background-color: #151523;
+  --tooltip-background-color: rgba(0, 0, 0, 0.6);
   --tooltip-border-color-rgb: #{dim-hex-to-rgb-values(#5d5970)};
 
   position: absolute;
   background-color: var(--tooltip-background-color);
-  color: #dadaea;
+  backdrop-filter: blur(20px) saturate(2);
+  //color: #dadaea;
   width: fit-content;
   max-width: 306px;
   border: 1px solid dim-rgb-values-to-rgba(var(--tooltip-border-color-rgb));
   border-top-width: $ribbon-width;
-  border-radius: $ribbon-width;
+  //border-radius: $ribbon-width;
   box-shadow: 0 0 24px 6px #080811;
   text-align: left;
   z-index: 99999;
@@ -43,7 +44,7 @@ $horizontal-padding: 11px;
     top: -$ribbon-width;
     left: -1px;
     right: -1px;
-    border-radius: $ribbon-width $ribbon-width 0 0;
+    //border-radius: $ribbon-width $ribbon-width 0 0;
   }
 
   &.wideTooltip {
@@ -66,6 +67,7 @@ $horizontal-padding: 11px;
       font-size: 14px;
       margin: 0;
       color: white;
+
       @include destiny-header;
     }
 

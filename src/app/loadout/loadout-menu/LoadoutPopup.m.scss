@@ -10,7 +10,11 @@
   z-index: 2;
   color: rgba(245, 245, 245, 0.6);
   overscroll-behavior: contain;
-  background-color: black;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  @include emboss-tile;
+  box-shadow: 0 0 5px 0 black;
 
   @include visible-scrollbars;
 
@@ -155,7 +159,7 @@
 }
 
 .content {
-  background-color: black;
+  //background-color: black;
   color: #e4e4e4;
 }
 

@@ -2,10 +2,11 @@
 
 .trayContainer {
   position: fixed;
+
   @include below-header;
   right: 0;
   height: calc(var(--viewport-height) - var(--header-height));
-  z-index: 10;
+  z-index: 20;
   box-sizing: border-box;
   width: 0;
 }
@@ -15,7 +16,9 @@
 }
 
 .sideTray {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px) saturate(2);
+  box-shadow: inset 1px 0 0 0 rgba(255, 255, 255, 0.2), 0 0 15px 0 black;
   padding: 10px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -29,7 +32,7 @@
   }
 
   > div {
-    background-color: black;
+    //background-color: black;
   }
 }
 
@@ -41,7 +44,7 @@
   right: 100%;
   color: white;
   padding: 8px;
-  top: -25px;
+  top: 20px;
   transform-origin: bottom right;
   white-space: nowrap;
   font-size: 16px;

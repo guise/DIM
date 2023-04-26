@@ -18,7 +18,8 @@
 .desktopPopupRoot {
   pointer-events: none;
   .arrow {
-    border-color: #161626;
+    border-color: rgba(255, 255, 255, 1);
+    z-index: 2;
   }
 }
 
@@ -80,20 +81,29 @@
   &[data-popper-placement^='right'] .arrow {
     width: 0;
     height: 0;
-    border-width: 5px 5px 5px 0;
+    border-width: 8px 8px 8px 0;
     border-left-color: transparent;
     border-top-color: transparent;
     border-bottom-color: transparent;
-    left: -5px;
+    left: -8px;
+
+    // width:10px;
+    // height: 20px;
+    // background: linear-gradient(315deg, transparent 49.5%, rgba(255,255,255,.25) 50% calc(50% + 1px), transparent calc(50% + 1px) 50%),
+    // linear-gradient(225deg, transparent 49.5%, rgba(255,255,255,.25) 50% calc(50% + 1px), transparent calc(50% + 1px) 50%);
+    // background-position: 0 -4px, 0 4px;
+    // background-repeat: no-repeat, no-repeat;
+    // margin-left: -10px;
   }
+
   &[data-popper-placement^='left'] .arrow {
     width: 0;
     height: 0;
-    border-width: 5px 0 5px 5px;
+    border-width: 8px 0 8px 8px;
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
-    right: -5px;
+    right: -8px;
   }
   textarea {
     resize: vertical;
@@ -101,9 +111,15 @@
 }
 
 .popupBackground {
-  background-color: #{'hsl(var(--background-color))'};
+  //background-color: #{'hsl(var(--background-color))'};
   contain: content;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px) saturate(2);
   box-shadow: 0 -1px 24px 4px #161626;
+  z-index: 0;
+
+  @include emboss-tile;
+
   @include phone-portrait {
     box-shadow: none;
   }

@@ -8,11 +8,12 @@ $control-color: rgba(255, 255, 255, 0.5);
   right: 0;
   position: fixed;
   backface-visibility: hidden;
-  z-index: 12;
+  z-index: 22;
   bottom: 0;
   // Pin the sheet to just over the keyboard
   bottom: var(--viewport-bottom-offset);
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px) saturate(2);
   color: #e0e0e0;
   box-shadow: 0 -1px 24px 0 #222;
   user-select: none;

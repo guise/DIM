@@ -1,7 +1,7 @@
 .sheet {
   max-width: 900px;
   margin: 0 auto;
-  z-index: 14; // higher than item popup
+  z-index: 24; // higher than item popup and header
 
   :global(.sheet-close) {
     right: 16px;
