@@ -12,6 +12,7 @@
     (var(--num-characters) + 1) *
       (var(--inventory-column-padding) * 2 + var(--character-column-width))
   );
+
   @include phone-portrait {
     min-width: auto;
     // Give room for the category selector strip (height 53px)
@@ -31,10 +32,15 @@
       var(--num-characters),
       calc(#{$equipped-item-total-outset} + var(--character-column-width) + var(--column-padding))
     )
-    // Vault takes the rest
+    /* Vault takes the rest*/
     1fr;
   box-sizing: border-box;
   padding-right: calc(var(--sidebar-size) * var(--expanded-sidebars));
+
+  // Space out the first row to prevent clipping enlarged items on hover
+  &:first-child:not(.store-header) {
+    margin-top: 15px;
+  }
 
   // Split evenly between character and vault
   .singleCharacter &.account-wide {
@@ -65,6 +71,7 @@
 
   &.vault {
     min-width: calc(var(--character-column-width) + var(--inventory-column-padding));
+
     @include phone-portrait {
       min-width: auto;
     }
@@ -111,6 +118,7 @@
       grid-template-columns: repeat(10, 1fr);
       gap: 0;
       padding: 4px 0 0 0;
+
       @include phone-portrait {
         padding: 4px 0;
       }
@@ -119,6 +127,7 @@
     .item-drag-container,
     .empty-engram {
       --item-size: var(--engram-size);
+
       @include phone-portrait {
         --item-size: calc((100vw - (2 * var(--inventory-column-padding))) / 10);
       }
@@ -158,21 +167,28 @@
 .store-header {
   position: fixed;
   backface-visibility: hidden;
+
   @include below-header;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20; //increase to sit over popups
   grid-template-columns:
     repeat(var(--num-characters), calc(6px + var(--character-column-width) + var(--column-padding)))
     calc(6px + var(--character-column-width) + var(--column-padding)) 1fr !important;
-  background: $gradient;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 100% 100vh;
+  // background: $gradient;
+  // background-position: center top;
+  // background-repeat: no-repeat;
+  // background-size: 100% 100vh;
+  background: $solid-bkg;
+  backdrop-filter: blur(20px) saturate(2);
+  //box-shadow: 0 1px 0 0 rgba(0,0,0,.5), 0 2px 0 0 rgba(255,255,255,.05);
+  box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.7), inset 0 2px 0 0 rgba(255, 255, 255, 0.03),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 0 rgba(0, 0, 0, 0.5);
 
   &:focus {
     outline: none;
   }
+
   @supports (position: sticky) {
     position: sticky;
   }
