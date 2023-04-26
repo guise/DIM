@@ -12,6 +12,7 @@ interface CssExports {
   'masterwork': string;
   'quality': string;
   'shapedIcon': string;
+  'shapedIconBkg': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

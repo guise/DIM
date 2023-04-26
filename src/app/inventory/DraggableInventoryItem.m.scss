@@ -18,4 +18,9 @@
 
 .cantDrag {
   cursor: pointer;
+  box-shadow: none !important;
+
+  ::before {
+    box-shadow: none !important;
+  }
 }

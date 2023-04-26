@@ -65,7 +65,9 @@ export default function BadgeInfo({ item, isCapped, wishlistRoll }: Props) {
 
   const wishlistRollIcon = toUiWishListRoll(wishlistRoll);
   const summaryIcon = item.crafted ? (
-    <img className={styles.shapedIcon} src={shapedIcon} />
+    <span className={styles.shapedIconBkg}>
+      <img className={styles.shapedIcon} src={shapedIcon} />
+    </span>
   ) : (
     wishlistRollIcon && <RatingIcon uiWishListRoll={wishlistRollIcon} />
   );
