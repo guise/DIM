@@ -27,19 +27,19 @@
   // Mod drawer has z-index of 14 and needs to sit over this
   z-index: 13;
 
-  --background-color: 0, 0%, 0%;
+  --background-color: 0, 0, 0, 0.6;
 
   &.exotic {
-    --background-color: 48, 71%, 5%;
+    --background-color: 41, 35, 0, 0.6;
   }
   &.legendary {
-    --background-color: 279, 36%, 5%;
+    --background-color: 17, 0, 34, 0.6;
   }
   &.rare {
-    --background-color: 213, 34%, 6%;
+    --background-color: 0, 17, 38, 0.6;
   }
   &.uncommon {
-    --background-color: 126, 35%, 5%;
+    --background-color: 0, 26, 3, 0.6;
   }
   &.common {
     --background-color: 0, 0%, 7%;
@@ -111,9 +111,8 @@
 }
 
 .popupBackground {
-  //background-color: #{'hsl(var(--background-color))'};
+  background-color: #{'rgba(var(--background-color))'};
   contain: content;
-  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(20px) saturate(2);
   box-shadow: 0 -1px 24px 4px #161626;
   z-index: 0;
